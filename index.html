@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/modal.css">
 </head>
 
 <body>
@@ -107,8 +108,7 @@
                     <p class="lead mb-4 opacity-95">
                         Nacimos del amor por las recetas tradicionales mexicanas y el deseo de compartir la alegría de nuestra cultura en cada plato. Cada ingrediente es seleccionado cuidadosamente para mantener viva la esencia de nuestras raíces.
                     </p>
-                    <a href="#menu" class="btn btn-warning fw-bold px-4 py-3 text-dark shadow">CONOCE MÁS DE NOSOTROS</a>
-                    <a href="#" class="btn btn-outline-warning fw-bold px-4 py-3 shadow ms-2" data-bs-toggle="modal" data-bs-target="#modalHistoria">LEER NUESTRA HISTORIA</a>
+                    <a href="#" class="btn btn-warning fw-bold px-4 py-3 text-dark shadow" data-bs-toggle="modal" data-bs-target="#modalHistoria">LEER NUESTRA HISTORIA</a>
                 </div>
             </div>
         </div>
@@ -179,80 +179,68 @@
     <!-- Modal Nuestra Historia -->
     <div class="modal fade" id="modalHistoria" tabindex="-1" aria-labelledby="modalHistoriaLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content modal-historia-content border-0 overflow-hidden">
+            <div class="modal-content">
                 
-                <div class="modal-header border-0 position-relative" style="padding: 0; min-height: 280px;">
-                    <div class="modal-historia-bg w-100 h-100 position-absolute top-0 start-0"></div>
-                    <div class="position-relative w-100 h-100 d-flex flex-column justify-content-end p-4">
-                        <span class="badge bg-warning text-dark mb-2 align-self-start" style="font-size: 0.8rem;">Desde 2018</span>
-                        <h3 class="modal-title fw-bold text-white mb-0" id="modalHistoriaLabel" style="font-family: var(--fuente-titulos); text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">Nuestra Historia</h3>
+                <div class="modal-historia-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="header-content">
+                        <span class="badge badge-fecha">Desde 2018</span>
+                        <h3 id="modalHistoriaLabel">Nuestra Historia</h3>
                     </div>
-                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close" style="z-index: 10;"></button>
                 </div>
 
-                <div class="modal-body p-4">
-                    <div class="row align-items-center mb-4">
-                        <div class="col-1 text-center">
-                            <div style="width: 3px; height: 100%; background: linear-gradient(to bottom, var(--color-acento-amarillo), var(--color-secundario)); border-radius: 2px; position: absolute;"></div>
-                        </div>
-                        <div class="col-11 ps-4">
-                            <h5 class="fw-bold" style="color: var(--color-primario-oscuro); font-family: var(--fuente-titulos);">
-                                🌮 El sueño de la familia Rodríguez-Patiño
-                            </h5>
-                        </div>
-                    </div>
+                <div class="modal-body modal-historia-body">
+                    <h5 class="titulo-historia">El sueño de la familia Rodríguez-Patiño</h5>
 
-                    <p class="lead" style="color: var(--color-texto-principal); line-height: 1.9;">
+                    <p>
                         Todo comenzó con <strong>Doña Carmen Rodríguez</strong>, una abuela mexico-colombiana que soñaba con reunir a las familias alrededor de una mesa llena de sabor. En 2018, junto a su esposo <strong>Don Miguel Patiño</strong> y sus tres hijos, decidieron abrir las puertas de <strong>"La Fiesta"</strong> en el corazón de Bogotá.
                     </p>
 
-                    <div class="alert alert-light border-start border-4 border-warning mb-4" role="alert">
+                    <div class="cita-dona-carmen">
                         <em>"Queríamos crear un lugar donde los niños pudieran probar los tacos de abuela mientras los papás disfrutan de una buena michelada. Un sitio donde se sientan como en casa."</em>
-                        <br><strong class="text-end d-block mt-2" style="color: var(--color-secundario);">— Doña Carmen Rodríguez</strong>
+                        <span class="autor-cita">— Doña Carmen Rodríguez</span>
                     </div>
 
-                    <p style="color: var(--color-texto-secundario); line-height: 1.8;">
+                    <p>
                         Las recetas de Doña Carmen son una herencia de su abuelita mexicana, adaptadas con ingredientes frescos colombianos. Los chiles se tuestan como en Oaxaca, pero el aguacate tiene el toque cremoso de Boyacá. Los frijoles se preparan con el sazón de la huila y el maíz tortilla es importado directamente de Xochimilco.
                     </p>
 
-                    <div class="row g-3 my-4">
+                    <div class="row g-3 my-3">
                         <div class="col-md-4">
-                            <div class="card h-100 border-0 shadow-sm text-center p-3" style="background-color: var(--color-fondo-claro);">
-                                <div style="font-size: 2.5rem;">👨‍👩‍👧‍👦</div>
-                                <h6 class="fw-bold mt-2" style="color: var(--color-primario-oscuro);">Familia Unida</h6>
-                                <small style="color: var(--color-texto-secundario);">3 generaciones cocinando juntas</small>
+                            <div class="card-historia">
+                                <span class="icono-card">👨‍👩‍👧‍👦</span>
+                                <h6>Familia Unida</h6>
+                                <small>3 generaciones cocinando juntas</small>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card h-100 border-0 shadow-sm text-center p-3" style="background-color: var(--color-fondo-claro);">
-                                <div style="font-size: 2.5rem;">🇲🇽🤝🇨🇴</div>
-                                <h6 class="fw-bold mt-2" style="color: var(--color-primario-oscuro);">Fusión Única</h6>
-                                <small style="color: var(--color-texto-secundario);">Sabores que conectan dos culturas</small>
+                            <div class="card-historia">
+                                <span class="icono-card">🇲🇽🤝🇨🇴</span>
+                                <h6>Fusión Única</h6>
+                                <small>Sabores que conectan dos culturas</small>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card h-100 border-0 shadow-sm text-center p-3" style="background-color: var(--color-fondo-claro);">
-                                <div style="font-size: 2.5rem;">❤️</div>
-                                <h6 class="fw-bold mt-2" style="color: var(--color-primario-oscuro);">Hecho con Amor</h6>
-                                <small style="color: var(--color-texto-secundario);">Recetas de más de 100 años</small>
+                            <div class="card-historia">
+                                <span class="icono-card">❤️</span>
+                                <h6>Hecho con Amor</h6>
+                                <small>Recetas de más de 100 años</small>
                             </div>
                         </div>
                     </div>
 
-                    <p style="color: var(--color-texto-secundario); line-height: 1.8;">
+                    <p>
                         Hoy, <strong>La Fiesta</strong> es más que un restaurante: es el lugar donde los cumpleaños se celebran con mariachis, donde los abuelos cuentan historias mientras comen tamales, y donde cada platillo cuenta la historia de una familia que creyó en el poder de la comida para unir a las personas.
                     </p>
 
-                    <div class="text-center mt-4">
-                        <span class="badge px-4 py-2" style="background-color: var(--color-acento-amarillo); color: var(--color-texto-principal); font-size: 1rem;">
-                            🎉 ¡Más de 5,000 familias felices!
-                        </span>
+                    <div class="text-center mt-3">
+                        <span class="badge-contador">🎉 ¡Más de 5,000 familias felices!</span>
                     </div>
                 </div>
 
-                <div class="modal-footer border-0 justify-content-center pb-4">
-                    <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Cerrar</button>
-                    <a href="#menu" class="btn btn-warning fw-bold px-4 text-dark" data-bs-dismiss="modal">Ver Menú</a>
+                <div class="modal-historia-footer">
+                    <button type="button" class="btn-cerrar" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="#menu" class="btn-ver-menu" data-bs-dismiss="modal">Ver Menú</a>
                 </div>
             </div>
         </div>

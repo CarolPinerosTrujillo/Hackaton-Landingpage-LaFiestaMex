@@ -1,0 +1,312 @@
+/* ===== MODAL NUESTRA HISTORIA - Estilos dedicados ===== */
+
+/* Contenedor principal */
+#modalHistoria .modal-content {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(43, 24, 16, 0.4);
+}
+
+/* Header con imagen de fondo */
+.modal-historia-header {
+    position: relative;
+    min-height: 220px;
+    background-image: url('../imagenes/modalnuestrahistoria.avif');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+    overflow: hidden;
+}
+
+.modal-historia-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(92, 29, 19, 0.95) 0%,
+        rgba(92, 29, 19, 0.6) 50%,
+        rgba(43, 24, 16, 0.3) 100%
+    );
+    z-index: 1;
+}
+
+.modal-historia-header .header-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.modal-historia-header .badge-fecha {
+    background-color: var(--color-acento-amarillo);
+    color: var(--color-texto-principal);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.modal-historia-header h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white;
+    margin: 8px 0 0 0;
+    text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.modal-historia-header .btn-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    backdrop-filter: blur(4px);
+    transition: background 0.3s ease;
+}
+
+.modal-historia-header .btn-close:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Body del modal */
+.modal-historia-body {
+    padding: 24px 28px;
+    background-color: var(--color-fondo-claro);
+}
+
+/* Titulo de la historia */
+.modal-historia-body .titulo-historia {
+    font-family: var(--fuente-titulos);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-historia-body .titulo-historia::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(to bottom, var(--color-acento-amarillo), var(--color-secundario));
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+/* Parrafos */
+.modal-historia-body p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-texto-principal);
+    margin-bottom: 14px;
+}
+
+.modal-historia-body p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Cita de Doña Carmen */
+.cita-dona-carmen {
+    background: linear-gradient(135deg, #FFF9F0 0%, #FDFBF7 100%);
+    border-left: 4px solid var(--color-acento-amarillo);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 18px 0;
+    position: relative;
+}
+
+.cita-dona-carmen::before {
+    content: '\201C';
+    font-family: Georgia, serif;
+    font-size: 3rem;
+    color: var(--color-acento-amarillo);
+    opacity: 0.4;
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    line-height: 1;
+}
+
+.cita-dona-carmen em {
+    font-size: 0.88rem;
+    color: var(--color-texto-secundario);
+    font-style: italic;
+    line-height: 1.6;
+    display: block;
+    padding-left: 8px;
+}
+
+.cita-dona-carmen .autor-cita {
+    display: block;
+    text-align: right;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-secundario);
+    margin-top: 8px;
+}
+
+/* Cards informativas */
+.card-historia {
+    background: white;
+    border: 1px solid var(--color-borde-suave);
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.card-historia:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(43, 24, 16, 0.12);
+}
+
+.card-historia .icono-card {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.card-historia h6 {
+    font-family: var(--fuente-titulos);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 4px;
+}
+
+.card-historia small {
+    font-size: 0.75rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.4;
+}
+
+/* Badge contador */
+.badge-contador {
+    background: linear-gradient(135deg, var(--color-acento-amarillo), var(--color-secundario));
+    color: var(--color-texto-principal);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 24px;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(217, 107, 39, 0.3);
+}
+
+/* Footer del modal */
+.modal-historia-footer {
+    background: white;
+    border-top: 1px solid var(--color-borde-suave);
+    padding: 16px 28px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.modal-historia-footer .btn-cerrar {
+    background-color: #e9ecef;
+    color: var(--color-texto-secundario);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.modal-historia-footer .btn-cerrar:hover {
+    background-color: #dee2e6;
+}
+
+.modal-historia-footer .btn-ver-menu {
+    background-color: var(--color-acento-amarillo);
+    color: var(--color-texto-principal);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.modal-historia-footer .btn-ver-menu:hover {
+    background-color: var(--color-secundario);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Animacion de entrada */
+#modalHistoria.show .modal-dialog {
+    animation: modalFadeIn 0.35s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Scrollbar del modal */
+#modalHistoria .modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+#modalHistoria .modal-body::-webkit-scrollbar-track {
+    background: var(--color-fondo-claro);
+}
+
+#modalHistoria .modal-body::-webkit-scrollbar-thumb {
+    background: var(--color-borde-suave);
+    border-radius: 10px;
+}
+
+#modalHistoria .modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secundario);
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .modal-historia-header {
+        min-height: 180px;
+        padding: 18px;
+    }
+
+    .modal-historia-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .modal-historia-body {
+        padding: 18px 16px;
+    }
+
+    .modal-historia-body p {
+        font-size: 0.85rem;
+    }
+
+    .modal-historia-footer {
+        padding: 12px 16px;
+        flex-direction: column;
+    }
+
+    .modal-historia-footer .btn-cerrar,
+    .modal-historia-footer .btn-ver-menu {
+        width: 100%;
+    }
+}
