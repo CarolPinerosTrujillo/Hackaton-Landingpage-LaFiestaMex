@@ -1,0 +1,202 @@
+/* ===== SECCIÓN PROMOCIONES ===== */
+
+.promos-section {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-primario-oscuro) 0%, #7A2A1A 100%);
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+/* Patrón decorativo de fondo */
+.promos-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(242, 169, 34, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(217, 107, 39, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* Título animado */
+.promos-title {
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: promoTitleFloat 4s ease-in-out infinite;
+}
+
+@keyframes promoTitleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* Grid de cards - horizontal */
+.promos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Card container */
+.promo-card {
+    perspective: 1000px;
+    height: 300px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.promo-card.promo-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.promo-card:nth-child(1) { transition-delay: 0.1s; }
+.promo-card:nth-child(2) { transition-delay: 0.3s; }
+
+/* Inner card - flip */
+.promo-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.promo-card:hover .promo-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Frente y reverso */
+.promo-front,
+.promo-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Frente */
+.promo-front {
+    background: linear-gradient(145deg, var(--color-fondo-claro), var(--color-acento-amarillo));
+    border: 1px solid var(--color-borde-suave);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.promo-front-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    animation: promoBounce 3s ease-in-out infinite;
+}
+
+@keyframes promoBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.promo-front-title {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 8px;
+}
+
+.promo-front-desc {
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+
+.promo-front-badge {
+    background: var(--color-secundario);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+}
+
+/* Reverso */
+.promo-back {
+    background: linear-gradient(145deg, var(--color-primario-oscuro), var(--color-secundario));
+    transform: rotateY(180deg);
+    border: 1px solid rgba(242, 169, 34, 0.4);
+    box-shadow: 0 8px 30px rgba(92, 29, 19, 0.4);
+}
+
+.promo-back-icon {
+    font-size: 2.5rem;
+    margin-bottom: 14px;
+}
+
+.promo-back-title {
+    font-family: var(--fuente-titulos);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-acento-amarillo);
+    margin-bottom: 10px;
+}
+
+.promo-back-text {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.promo-back-detail {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.55);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Glow en card destacada */
+.promo-card-featured .promo-front {
+    border: 2px solid var(--color-acento-amarillo);
+    animation: promoGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes promoGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(242, 169, 34, 0.15), 0 8px 25px rgba(0, 0, 0, 0.15); }
+    50% { box-shadow: 0 0 20px rgba(242, 169, 34, 0.3), 0 8px 25px rgba(0, 0, 0, 0.15); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .promos-section {
+        padding: 50px 0;
+    }
+
+    .promos-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .promos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 400px;
+    }
+
+    .promo-card {
+        height: 280px;
+    }
+}

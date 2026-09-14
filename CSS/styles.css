@@ -142,6 +142,54 @@ section, main, footer {
     z-index: 1;
 }
 
+/* ===== TÍTULOS DE SECCIÓN ===== */
+.seccion-titulo {
+    font-family: var(--fuente-titulos);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-primario-oscuro);
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 16px;
+}
+
+.seccion-titulo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-acento-amarillo), var(--color-secundario));
+    border-radius: 2px;
+}
+
+/* ===== SECCIÓN MENÚ - Fondo diferenciado ===== */
+.menu-section {
+    background: linear-gradient(180deg, #FFF9F0 0%, #F0E6D8 100%);
+    padding: 70px 0;
+    position: relative;
+}
+
+.menu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-acento-amarillo), var(--color-secundario), var(--color-acento-amarillo));
+}
+
+/* ===== SEPARADORES VISUALES ===== */
+.separador-seccion {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-borde-suave) 30%, var(--color-borde-suave) 70%, transparent);
+    margin: 0;
+}
+
 .card {
     background-color: var(--color-tarjeta);
     border: 1px solid var(--color-borde-suave);
@@ -238,7 +286,7 @@ section, main, footer {
 #carrito {
     max-height: 400px;
     overflow-y: auto;
-    min-width: 340px;
+    min-width: 380px;
 }
 
 #carrito::-webkit-scrollbar {
@@ -263,6 +311,15 @@ section, main, footer {
     margin-bottom: 0;
 }
 
+#lista-carrito th {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-texto-secundario);
+    border-bottom: 2px solid var(--color-borde-suave);
+    padding: 6px 4px;
+}
+
 #lista-carrito tbody tr {
     transition: background-color 0.2s ease;
     border-bottom: 1px solid var(--color-borde-suave);
@@ -277,18 +334,77 @@ section, main, footer {
 }
 
 #lista-carrito td {
-    padding: 10px 8px;
+    padding: 8px 4px;
     vertical-align: middle;
+    font-size: 0.85rem;
 }
 
-#lista-carrito td img {
+.carrito-td-img img {
     border-radius: 8px;
     object-fit: cover;
 }
 
+.carrito-td-nombre {
+    font-size: 0.85rem;
+    max-width: 100px;
+}
+
+.carrito-td-precio {
+    font-size: 0.8rem;
+}
+
+.carrito-td-subtotal {
+    font-size: 0.8rem;
+    color: var(--color-primario-oscuro);
+}
+
+/* Controles de cantidad */
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+}
+
+.qty-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--color-borde-suave);
+    background: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: var(--color-texto-principal);
+    line-height: 1;
+    padding: 0;
+}
+
+.qty-btn:hover {
+    background: var(--color-acento-amarillo);
+    border-color: var(--color-acento-amarillo);
+    transform: scale(1.1);
+}
+
+.qty-btn:active {
+    transform: scale(0.95);
+}
+
+.qty-valor {
+    font-weight: 700;
+    font-size: 0.9rem;
+    min-width: 22px;
+    text-align: center;
+    color: var(--color-primario-oscuro);
+}
+
 .borrar {
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: transform 0.2s ease, color 0.2s ease;
     display: inline-block;
 }
@@ -317,6 +433,52 @@ section, main, footer {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+/* ===== CARRITO RESPONSIVE ===== */
+@media (max-width: 576px) {
+    #carrito {
+        min-width: 100vw;
+        margin-right: -15px;
+        max-height: 70vh;
+    }
+
+    #lista-carrito th,
+    #lista-carrito td {
+        padding: 6px 3px;
+        font-size: 0.75rem;
+    }
+
+    .carrito-td-img img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .carrito-td-nombre {
+        font-size: 0.75rem;
+        max-width: 70px;
+    }
+
+    .qty-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+    }
+
+    .qty-valor {
+        font-size: 0.8rem;
+        min-width: 18px;
+    }
+
+    .carrito-td-precio,
+    .carrito-td-subtotal {
+        font-size: 0.7rem;
+    }
+
+    .carrito-th-subtotal,
+    .carrito-td-subtotal {
+        display: none;
     }
 }
 
