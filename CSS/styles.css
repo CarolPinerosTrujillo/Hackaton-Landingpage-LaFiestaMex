@@ -352,3 +352,46 @@ section, main, footer {
         transform: translateY(0);
     }
 }
+
+/* ===== MODAL NUESTRA HISTORIA ===== */
+.modal-historia-content {
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.modal-historia-bg {
+    background-image: url('../imagenes/modanuestrahistoria.avif');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+}
+
+.modal-historia-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(92, 29, 19, 0.95), transparent);
+}
+
+.modal-body .card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+    animation: modalSlideIn 0.4s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
