@@ -15,6 +15,9 @@ body {
     background-color: var(--color-fondo-claro);
     color: var(--color-texto-principal);
     font-family: var(--fuente-cuerpo);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, .navbar-brand .marca {
@@ -25,10 +28,33 @@ p, a {
     font-family: var(--fuente-cuerpo);
 }
 
+/* ===== LOGO NAVBAR ===== */
+.navbar-brand {
+    height: auto !important;
+    padding: 0 !important;
+}
+
+.navbar-brand img {
+    height: 70px !important;
+    width: auto !important;
+    background: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 .header-principal {
     background-color: var(--color-primario-oscuro);
     border-bottom: 3px solid var(--color-acento-amarillo);
     box-shadow: 0 4px 6px rgba(43, 24, 16, 0.15);
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== SECCIONES - SIN ESPACIOS ===== */
+section, main, footer {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .navbar-nav .nav-link {
@@ -57,11 +83,15 @@ p, a {
 }
 
 .hero-banner {
-    background-image: url('imagenes/banner.png');
+    background-image: url('imagenes/comidamex.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 82vh;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 .hero-banner h1 {
@@ -103,6 +133,8 @@ p, a {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    padding: 80px 0;
+    margin: 0;
 }
 
 .historia-overlay {
@@ -199,5 +231,124 @@ p, a {
 @media (max-width: 768px) {
     .logo-footer {
         max-width: 150px;
+    }
+}
+
+/* ===== CARRITO DE COMPRAS ===== */
+#carrito {
+    max-height: 400px;
+    overflow-y: auto;
+    min-width: 340px;
+}
+
+#carrito::-webkit-scrollbar {
+    width: 6px;
+}
+
+#carrito::-webkit-scrollbar-track {
+    background: var(--color-fondo-claro);
+    border-radius: 10px;
+}
+
+#carrito::-webkit-scrollbar-thumb {
+    background: var(--color-acento-amarillo);
+    border-radius: 10px;
+}
+
+#carrito::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secundario);
+}
+
+#lista-carrito {
+    margin-bottom: 0;
+}
+
+#lista-carrito tbody tr {
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid var(--color-borde-suave);
+}
+
+#lista-carrito tbody tr:hover {
+    background-color: rgba(242, 169, 34, 0.1);
+}
+
+#lista-carrito tbody tr:last-child {
+    border-bottom: none;
+}
+
+#lista-carrito td {
+    padding: 10px 8px;
+    vertical-align: middle;
+}
+
+#lista-carrito td img {
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.borrar {
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-block;
+}
+
+.borrar:hover {
+    transform: scale(1.3);
+    color: #c0392b !important;
+}
+
+.carrito-vacio {
+    text-align: center;
+    padding: 20px;
+    color: var(--color-texto-secundario);
+    font-style: italic;
+}
+
+.carrito-item-enter {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===== TARJETAS DE PRODUCTOS ===== */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(43, 24, 16, 0.2) !important;
+}
+
+.box {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.box.oculto {
+    display: none !important;
+}
+
+.box.mostrar {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
